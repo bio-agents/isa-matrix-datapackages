@@ -1,0 +1,5 @@
+nmr_acquisition_ref,isotopic_tracer,tracer_abundance_pc,chemical_shift_ppm,multiplicity,connectivity,satellite_resonances,nb_proton_correction_peak_area,deconvoluted_peak_area,peak_deconvolution_method,mean_post_rltv_conc_estimate,95pc_upr_bound,95pc_lwr_bound,chemical_formula/assignment,assignment_type,labeled_position,isotopomer,database_identifier,database
+nmr_data_acquisition_1,D-(13C6)Glucose,50,284,,,,,,,0.002669267,0.003023488,0.002198357,,chemical shift,1.0.0.1,,HMDB00190,HMDB
+nmr_data_acquisition_1,D-(13C6)Glucose,50,285,,,,,,,0.002669267,0.003023488,0.002198357,,chemical shift,1.0.1.0,,HMDB00191,HMDB
+nmr_data_acquisition_1,D-(13C6)Glucose,50,294,,,,,,,0.002669267,0.003023488,0.002198357,,chemical shift,1.1.0.0,,HMDB00192,HMDB
+nmr_data_acquisition_1,D-(13C6)Glucose,50,300,,,,,,,0.002669267,0.003023488,0.002198357,,chemical shift,0.1.0.1,,HMDB00193,HMDB

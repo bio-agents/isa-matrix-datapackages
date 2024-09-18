@@ -1,0 +1,163 @@
+{
+    "name": "Metabolite Assignment File for NMR-datapackage",
+    "title": "Metabolite Assignment File Data Package",
+    "version": "1.0",
+  "keywords": ["metabolite", "assignment", "identification", "Metabolights", "NMR"],
+  "licenses": [{
+    "url": "http://opendatacommons.org/licenses/pddl/",
+    "name": "Open Data Commons Public Domain",
+    "version": "1.0",
+    "id": "odc-pddl"
+  }],
+  "sources": [{
+    "name": "University of Oxford e-Research Centre",
+    "web": "http://oerc.ox.ac.uk"
+  }],
+  "contributors":[ {
+    "name": "Philippe Rocca-Serra",
+    "email": "proccaserra@gmail.com",
+    "web": "http://www.stato-ontology.org"
+  }],
+  "maintainers": [{
+    "name": "Philippe Rocca-Serra",
+    "email": "proccaserra@gmail.com",
+    "web": "http://www.stato-ontology.org"
+  }],
+  "publishers": [{
+    "name": "Philippe Rocca-Serra",
+    "email": "proccaserra@gmail.com",
+    "web": "http://www.stato-ontology.org"
+  }],
+    "resources": [{
+        "name": "NMR_MAF",
+        "title": "NMR_MAF",
+        "path": "NMR_MAF.csv",
+        "schema": {
+            "fields": [
+                {
+                    "name": "metabolite_identification",
+                    "title": "Metabolite Identity",
+                    "description": "the field Metaboite Identity  is meant to hold information such a metabolite database identifier",
+                    "format": " default",
+                    "type": "string",
+                    "rdfType": "http://purl.obolibrary.org/obo/CHEBI_25212",
+                    "constraints": {
+                        "required": "True",
+                        "pattern": "HMBD\\d+"
+                    }
+                },
+                   {
+                "name": "chemical_formula",
+                "title": "chemical formula",
+                "description": "chemical formula",
+                "format": " default",
+                "type": "string",
+                "rdfType": "http://edamontology.org/data_0846",
+                "constraints": {"required": "False"}
+            },
+            {
+                "name": "smiles",
+                "title": "smiles",
+                "description": "The term SMILES refers to a line notation for encoding molecular structures and specific instances should strictly be called SMILES strings",
+                "format": " default",
+                "type": "string",
+                "rdfType": "http://edamontology.org/data_2301",
+                "constraints": {"required": "False"}
+            },
+            {
+                "name": "inchi",
+                "title": "INCHI: IUPAC International Chemical Identifier",
+                "description": "The IUPAC International Chemical Identifier is a textual identifier for chemical substances, designed to provide a standard way to encode molecular information and to facilitate the search for such information in databases and on the web. Initially developed by IUPAC and NIST from 2000 to 2005, the format and algorithms are non-proprietary",
+                "format": " default",
+                "type": "string",
+                "rdfType": "http://edamontology.org/format_1197",
+                "constraints": {"required": "False"}
+            },
+            {
+                "name": "database_identifier",
+                "title": "Database Identifier",
+                "description": "the database identifier minted by the database hosting the chemical identify information",
+                "format": " default",
+                "type": "string",
+                "rdfType": "http://purl.obolibrary.org/obo/IAO_0000578",
+                "constraints": {"required": "False"}
+            },
+            {
+                "name": "database",
+                "title": "database",
+                "description": "The namespace for the database as registered in MIRIAM or FAIRSHARING registry",
+                "format": " default",
+                "type": "string",
+                "rdfType": "http://edamontology.org/data_1056",
+                "constraints": {"required": "False"}
+            },
+            {
+                "name": "species",
+                "title": "organism",
+                "description": "the latin name in the taxonomic classification",
+                "format": " default",
+                "type": "string",
+                "rdfType": "http://purl.obolibrary.org/obo/OBI_0100026",
+                "constraints": {"required": "False"}
+            },
+            {
+                "name": "taxid",
+                "title": "Taxon ID",
+                "description": "the taxonomic identifier from the taxonomic classification used to assign a species to the entity",
+                "format": " default",
+                "type": "string",
+                "rdfType": "http://purl.obolibrary.org/obo/IAO_0000578",
+                "constraints": {"required": "False"}
+            },
+                {
+                    "name": "chemical_shift",
+                    "title": "Chemical Shift",
+                    "description": "the chemical shift expressed in particle per million (ppm)",
+                    "format": " default",
+                    "type": "number",
+                    "rdfType": "http://purl.org/obofoundry/nmrml/NMR:1000223",
+                    "constraints": {
+                    "required": "False",
+                    "pattern" : "\\d+.\\d+_|-\\d+.\\d+"
+                    }
+                },
+                {
+                    "name": "nmr_acquisition_ref",
+                    "title": "NMR acquisition event ref",
+                    "description": "a reference to an ISA NMR acquisition event ref",
+                    "format": " default",
+                    "type": "string",
+                    "rdfType": "http://purl.obolibrary.org/obo/OBI_0600013",
+                    "constraints": {"required": "False"}
+                },                
+                {
+                    "name": "mean_post_rltv_conc_estimate",
+                    "title": "mean posterior estimate of relative concentration",
+                    "description": "mean posterior estimate of relative concentration as generated by BATMAN R software",
+                    "format": " default",
+                    "type": "number",
+                    "rdfType": "http://purl.org/obofoundry/stato/STATO:0000645",
+                    "constraints": {"required": "False"}
+                },
+                {
+                    "name": "95pc_upr_bound",
+                    "title": "95% upper confidence bound of the credible interval",
+                    "description": "95% upper confidence bound of the credible interval qualifying the mean posterior estimate",
+                    "format": " default",
+                    "type": "number",
+                    "rdfType": "http://purl.org/obofoundry/stato/STATO:0000646",
+                    "constraints": {"required": "False"}
+                },
+                {
+                    "name": "95pc_lwr_bound",
+                    "title": "95% lower confidence bound of the credible interval",
+                    "description": "95% lower confidence bound of the credible interval qualifying the mean posterior estimate",
+                    "format": " default",
+                    "type": "number",
+                    "rdfType": "http://purl.org/obofoundry/stato/STATO:0000647",
+                    "constraints": {"required": "False"}
+                }
+            ]
+        }
+    }]
+}

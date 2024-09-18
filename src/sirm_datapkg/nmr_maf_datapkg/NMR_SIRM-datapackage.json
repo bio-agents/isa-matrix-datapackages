@@ -1,0 +1,276 @@
+{
+    "name": "Metabolite Assignment File for NMR-datapackage",
+    "title": "Metabolite Assignment File Data Package",
+    "version": "1.0",
+    "keywords": [
+        "metabolite",
+        "assignment",
+        "identification",
+        "Metabolights",
+        "NMR"
+    ],
+    "licenses": [{
+        "url": "http://opendatacommons.org/licenses/pddl/",
+        "name": "Open Data Commons Public Domain",
+        "version": "1.0",
+        "id": "odc-pddl"
+    }],
+    "sources": [{
+        "name": "University of Oxford e-Research Centre",
+        "web": "http://oerc.ox.ac.uk"
+    }],
+    "contributors": [{
+        "name": "Philippe Rocca-Serra",
+        "email": "proccaserra@gmail.com",
+        "web": "http://www.stato-ontology.org"
+    }],
+    "maintainers": [{
+        "name": "Philippe Rocca-Serra",
+        "email": "proccaserra@gmail.com",
+        "web": "http://www.stato-ontology.org"
+    }],
+    "publishers": [{
+        "name": "Philippe Rocca-Serra",
+        "email": "proccaserra@gmail.com",
+        "web": "http://www.stato-ontology.org"
+    }],
+    "resources": [{
+        "name": "NMR_SIRM",
+        "title": "NMR_SIRM",
+        "path": "NMR_SIRM.csv",
+        "schema": {"fields": [
+             {
+                "name": "nmr_acquisition_ref",
+                "title": "NMR Assay Name",
+                "description": "a reference to an ISA NMR acquisition event ref",
+                "format": " default",
+                "type": "string",
+                "rdfType": "http://purl.obolibrary.org/obo/OBI_0600013",
+                "constraints": {"required": "True"}
+            },       
+            {
+                "name": "chemical_shift_ppm",
+                "title": "Chemical Shift",
+                "description": "the chemical shift expressed in particle per million (ppm)",
+                "format": " default",
+                "type": "number",
+                "rdfType": "http://purl.org/obofoundry/nmrml/NMR:1000223",
+                "constraints": {
+                    "required": "True",
+                    "pattern": "\\d+.\\d+_|-\\d+.\\d+"
+                }
+            },
+            {
+                "name": "multiplicity",
+                "title": "Multiplicity",
+                "description": "Splitting pattern due to scalar couplings",
+                "format": " default",
+                "type": "number",
+                "rdfType": "",
+                "constraints": {
+                    "required": "False",
+                    "pattern": ""
+                }
+            },
+            {
+                "name": "connectivity",
+                "title": "Connectivity",
+                "description": "Molecular connectivity inferred from scalar couplings between resonances",
+                "format": " default",
+                "type": "number",
+                "rdfType": "",
+                "constraints": {
+                    "required": "False",
+                    "pattern": ""
+                }
+            },
+            {
+                "name": "satellite_resonances",
+                "title": "satellite resonances",
+                "description": "Location of satellite peaks and patterns that are used for quantification of site enrichment",
+                "format": " default",
+                "type": "number",
+                "rdfType": "",
+                "constraints": {
+                    "required": "False",
+                    "pattern": ""
+                }
+            },
+            {
+                "name": "saturation_factor",
+                "title": "saturation factor",
+                "description": "saturation factor, aka number of proton",
+                "format": " default",
+                "type": "number",
+                "rdfType": "",
+                "constraints": {
+                    "required": "False",
+                    "pattern": ""
+                }
+            },
+            {
+                "name": "nb_proton_correction_peak_area",
+                "title": "number of proton correction peak area",
+                "description": "number of proton correction peak area. The information supplied in this field can be used directly for quantification",
+                "format": " default",
+                "type": "number",
+                "rdfType": "",
+                "constraints": {
+                    "required": "False",
+                    "pattern": ""
+                }
+            },
+            {
+                "name": "deconvoluted_peak_area",
+                "title": "deconvoluted peak area",
+                "description": "deconvoluted peak area",
+                "format": " default",
+                "type": "number",
+                "rdfType": "",
+                "constraints": {
+                    "required": "False",
+                    "pattern": ""
+                }
+            },
+            {
+                "name": "peak_deconvolution_method",
+                "title": "peak deconvolution method",
+                "description": "peak deconvolution method",
+                "format": " default",
+                "type": "number",
+                "rdfType": "http://purl.obolibrary.org/obo/NCIT_C47929",
+                "constraints": {
+                    "required": "False",
+                    "enum": ["",""]
+                }
+            },
+            {
+                "name": "mean_post_rltv_conc_estimate",
+                "title": "mean post relative concentration estimate",
+                "description": "mean post relative concentration estimate as generated by BATMAN software",
+                "format": " default",
+                "type": "number",
+                "rdfType": "",
+                "constraints": {
+                    "required": "False"
+                }
+            },
+            {
+                "name": "95pc_upr_bound",
+                "title": "95pc upper credible bound",
+                "description": "95pc upper credible bound",
+                "format": " default",
+                "type": "number",
+                "rdfType": ["http://purl.obolibrary.org/obo/STATO_0000314","http://purl.obolibrary.org/obo/STATO_0000456"],
+                "constraints": {
+                    "required": "False"
+                }
+            },
+            {
+                "name": "95pc_lwr_bound",
+                "title": "95pc lower credible bound",
+                "description": "95pc lower credible bound",
+                "format": " default",
+                "type": "number",
+                "rdfType":  ["http://purl.obolibrary.org/obo/STATO_0000315","http://purl.obolibrary.org/obo/STATO_0000456"],
+                "constraints": {
+                    "required": "False"
+                }
+            },            
+            {
+                "name": "chemical_formula",
+                "title": "empirical formula",
+                "description": "The empirical formula The IUPAC sensu chemical formula about the molecular fragment associated with the m/z position in the mass spectrometry spectrum. The empirical formula of a compound is a chemical compound formula formed by juxtaposition of the atomic symbols with appropriate (integer) subscripts to give the simplest possible formula expressing the composition. MS_1000865 is the identifier for the term in the Mass spectrometry Ontology.",
+                "format": " default",
+                "type": "string",
+                "rdfType": "http://purl.obolibrary.org/obo/MS_1000865",
+                "constraints": {"required": "True"}
+            }, 
+            {
+                "name": "smiles",
+                "title": "SMILES string",
+                "description": "The term SMILES refers to a line notation for encoding molecular structures and specific instances should strictly be called SMILES strings",
+                "format": " default",
+                "type": "string",
+                "rdfType": "http://purl.obolibrary.org/obo/MS_1000868",
+                "constraints": {"required": "False"}
+            },
+            {
+                "name": "inchi",
+                "title": "INCHI: IUPAC International Chemical Identifier",
+                "description": "The IUPAC International Chemical Identifier is a textual identifier for chemical substances, designed to provide a standard way to encode molecular information and to facilitate the search for such information in databases and on the web. Initially developed by IUPAC and NIST from 2000 to 2005, the format and algorithms are non-proprietary",
+                "format": " default",
+                "type": "string",
+                "rdfType": "http://edamontology.org/format_1197",
+                "constraints": {"required": "False"}
+            }, 
+            {
+                "name": "database",
+                "title": "database",
+                "description": "The namespace for the database as registered in MIRIAM or FAIRSHARING registry",
+                "format": " default",
+                "type": "string",
+                "rdfType": "http://edamontology.org/data_1056",
+                "constraints": {"required": "False"}
+            },
+            {
+                "name": "database_identifier",
+                "title": "Database Identifier",
+                "description": "the database identifier minted by the database hosting the chemical identify information",
+                "format": " default",
+                "type": "string",
+                "rdfType": "http://purl.obolibrary.org/obo/IAO_0000578",
+                "constraints": {"required": "False"}
+            },             
+            {
+                   "name": "isotopomer",
+                   "title": "isotopomer",
+                   "description": "isotopomer",
+                   "format": " default",
+                   "type": "integer",
+                   "rdfType": "",
+                   "constraints": {"required": "True"}
+               },
+            {
+                "name": "labeled_position",
+                "title": "labeled position",
+                "description": "labeled position",
+                "format": " default",
+                "type": "integer",
+                "rdfType": "",
+                "constraints": {"required": "False"}
+            },            
+            {
+                "name": "assignment_type",
+                "title": "assignment type",
+                "description": "basis of assignment",
+                "format": " default",
+                "type": "integer",
+                "rdfType": "http://purl.obolibrary.org/obo/MI_2131",
+                "constraints": {
+                    "required": "False",
+                    "enum": [
+                        "chemical shift",
+                        "multiplicity",
+                        "2D cross peak",
+                        "proton-proton",
+                        "homonuclear",
+                        "heteronuclear resonance",
+                        "not applicable",
+                        "not available",
+                        "other"
+                    ]
+                }
+            },
+             {
+                "name": "assignment_confidence",
+                "title": "assignment confidence strength",
+                "description": "indicate the confidence score for the assignment",
+                "format": " default",
+                "type": "string",
+                "rdfType": "http://purl.obolibrary.org/obo/MI_2131", 
+                "constraints": {"required": "False", "enum": ["high","moderate","average","low","poor"]}
+            },            
+        ]}
+    }]
+}

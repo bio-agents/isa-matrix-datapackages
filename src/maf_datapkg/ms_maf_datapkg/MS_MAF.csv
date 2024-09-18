@@ -1,0 +1,5 @@
+metabolite_identification,sample_ref,chemical_shift,mean_post_rltv_conc_estimate,95pc_upr_bound,95pc_lwr_bound
+HMDB00190,mesa.rack1.1,284,0.002669267,0.003023488,0.002198357
+HMDB00191,mesa.rack1.1,285,0.002669267,0.003023488,0.002198357
+HMDB00192,mesa.rack1.1,294,0.002669267,0.003023488,0.002198357
+HMDB00193,mesa.rack1.1,300,0.002669267,0.003023488,0.002198357

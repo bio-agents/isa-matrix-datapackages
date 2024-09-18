@@ -1,0 +1,148 @@
+{
+    "name": "Pathway Enrichment Analysis File",
+    "title": "Pathway Enrichment Analysis File Data Package - INRA - H2020PhenoMenal",
+    "version": "1.0",
+    "keywords": [
+        "pathway",
+        "enrichment",
+        "analysis",
+        "metabolite",
+        "pvalue",
+        "qvalue"
+    ],
+    "licenses": [{
+        "url": "http://opendatacommons.org/licenses/pddl/",
+        "name": "Open Data Commons Public Domain",
+        "version": "1.0",
+        "id": "odc-pddl"
+    }],
+    "sources": [ {        "name": "University of Oxford e-Research Centre",
+        "web": "http://oerc.ox.ac.uk"    },
+         { "name": "INRA",
+        "web": "http://www.inra.fr"
+    }],
+    "contributors": [{
+        "name": "Philippe Rocca-Serra",
+        "email": "proccaserra@gmail.com",
+        "web": "http://www.stato-ontology.org"
+    },
+    {
+        "name": "Fabien Jourdan",
+        "email": "fabien.jourdan@inra.fr",
+        "web": "https://www6.toulouse.inra.fr/toxalim_eng/Research-Teams/E2-MeX-Metabolism-of-Xenobiotics/Research/Metabolic-Networks"
+    },
+    {
+        "name": "Etienne Camenen",
+        "email": "Etienne.Camenen@inra.fr",
+        "web": "https://www6.toulouse.inra.fr/toxalim_eng/Research-Teams/E2-MeX-Metabolism-of-Xenobiotics/Research/Metabolic-Networks"
+    }
+    ],
+    "maintainers": [{
+        "name": "Philippe Rocca-Serra",
+        "email": "proccaserra@gmail.com",
+        "web": "http://www.stato-ontology.org"
+    },
+    {
+        "name": "Fabien Jourdan",
+        "email": "fabien.jourdan@inra.fr",
+        "web": "https://www6.toulouse.inra.fr/toxalim_eng/Research-Teams/E2-MeX-Metabolism-of-Xenobiotics/Research/Metabolic-Networks"
+    },
+    {
+        "name": "Etienne Camenen",
+        "email": "Etienne.Camenen@inra.fr",
+        "web": "https://www6.toulouse.inra.fr/toxalim_eng/Research-Teams/E2-MeX-Metabolism-of-Xenobiotics/Research/Metabolic-Networks"
+    }
+    ],
+    "publishers": [{
+        "name": "Philippe Rocca-Serra",
+        "email": "proccaserra@gmail.com",
+        "web": "http://www.stato-ontology.org"
+    },
+        {
+        "name": "Fabien Jourdan",
+        "email": "fabien.jourdan@inra.fr",
+        "web": "https://www6.toulouse.inra.fr/toxalim_eng/Research-Teams/E2-MeX-Metabolism-of-Xenobiotics/Research/Metabolic-Networks"
+    },
+    {
+        "name": "Etienne Camenen",
+        "email": "Etienne.Camenen@inra.fr",
+        "web": "https://www6.toulouse.inra.fr/toxalim_eng/Research-Teams/E2-MeX-Metabolism-of-Xenobiotics/Research/Metabolic-Networks"
+    }
+    ],
+    "resources": [{
+        "name": "pathwayEnrichment",
+        "title": "pathwayEnrichment",
+        "dialect" : {
+                "delimiter" : "\t"
+        },
+        "path": "pathwayEnrichment.tsv",
+        "schema": {
+            "fields": [    
+                    {
+                        "name": "Pathway enrichment",
+                        "title": "Pathway enrichment",
+                        "description": "a pathway short name",
+                        "format": " default",
+                        "type": "string",
+                        "rdfType": "http://purl.obolibrary.org/obo/OBI_0600013",
+                        "constraints": {"required": "True"}
+                    },
+                    {
+                        "name": "Fisher's p-value",
+                        "title": "Fisher's p-value",
+                        "description": "a p-value resulting from  Fisher's exact test",
+                        "format": " default",
+                        "type": "number",
+                        "rdfType": "http://purl.obolibrary.org/obo/OBI_0000175",
+                        "constraints": {"required": "False","missingValues": ["NaN", "-"]}
+                    },
+                    {
+                        "name": "Bonferoni correction",
+                        "title": "Bonferoni correction",
+                        "description": "a q-value resulting from a Bonferoni correction",
+                        "format": " default",
+                        "type": "number",
+                        "rdfType": "http://purl.obolibrary.org/obo/OBI_0001442",
+                        "constraints": {"required": "False","missingValues": ["NaN", "-"]}
+                    }, 
+                    {
+                        "name": "Benjamini-Hochberg correction",
+                        "title": "Benjamini-Hochberg correction",
+                        "description": "a q-value resulting from a Benjamini-Hochberg correction",
+                        "format": " default",
+                        "type": "number",
+                        "rdfType": "http://purl.obolibrary.org/obo/OBI_0001442",
+                        "constraints": {"required": "False","missingValues": ["NaN", "-"]}
+                    },  
+                    {
+                        "name": "Mapped metabolites",
+                        "title": "Mapped metabolites",
+                        "description": "a comma separated list of metabolites mapped to the pathway",
+                        "format": " default",
+                        "type": "string",
+                        "rdfType": "http://purl.obolibrary.org/obo/CHEBI_25212",
+                        "constraints": {"required": "True","missingValues": ["NaN", "-"]}
+                    },
+                    {
+                        "name": "Nb of Mapped",
+                        "title": "Nb of Mapped",
+                        "description": "an integer indicating the number/the count of mapped metabolites",
+                        "format": " default",
+                        "type": "integer",
+                        "rdfType": "http://purl.obolibrary.org/obo/STATO_0000047",
+                        "constraints": {"required": "False","missingValues": ["NaN", "-"]}
+                    },
+                    {
+                        "name": "Coverage (%)",
+                        "title": "Coverage (%)",
+                        "description": "a number corresponding to the percentage of metabolites belonging to the pathways that have been mapped",
+                        "format": " default",
+                        "type": "number",
+                        "rdfType": "http://purl.obolibrary.org/obo/STATO_0000184",
+                        "constraints": {"required": "False","missingValues": ["NaN", "-"]}
+                    }            
+        ]
+    }
+    }
+  ]
+}

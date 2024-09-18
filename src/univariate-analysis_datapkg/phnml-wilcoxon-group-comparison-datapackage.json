@@ -1,0 +1,155 @@
+{
+    "name": "Metabolite Univariate Group Comparison JSON datapackage",
+    "title": "Metabolite Univariate Group Comparison Data Package",
+    "version": "1.0",
+    "keywords": [
+        "metabolite",
+        "group comparison",
+        "univariate analysis",
+        "Metabolights"
+    ],
+    "licenses": [{
+        "url": "http://opendatacommons.org/licenses/pddl/",
+        "name": "Open Data Commons Public Domain",
+        "version": "1.0",
+        "id": "odc-pddl"
+    }],
+    "sources": [{
+        "name": "University of Oxford e-Research Centre",
+        "web": "http://oerc.ox.ac.uk"
+    }],
+    "contributors": [{
+        "name": "Philippe Rocca-Serra",
+        "email": "proccaserra@gmail.com",
+        "web": "http://www.stato-ontology.org"
+    }],
+    "maintainers": [{
+        "name": "Philippe Rocca-Serra",
+        "email": "proccaserra@gmail.com",
+        "web": "http://www.stato-ontology.org"
+    }],
+    "publishers": [{
+        "name": "Philippe Rocca-Serra",
+        "email": "proccaserra@gmail.com",
+        "web": "http://www.stato-ontology.org"
+    }],
+    "resources": [{
+        "name": "univariate_comparison",
+        "title": "reporting univariate comparison",
+        "path": "univar-met.csv",
+        "schema": {"fields": [
+            {
+                "name": "metabolite_identification",
+                "title": "Metabolite Identity",
+                "description": "the field Metabolite Identity is meant to hold information such a metabolite database identifier",
+                "format": " default",
+                "type": "string",
+                "rdfType": "http://purl.org/obofoundry/obi/OBI:00001232",
+                "constraints": {
+                    "required": "True",
+                    "pattern": "HMBD\\d+"
+                }
+            },
+            {
+                "name": "treatment_contrast",
+                "title": "an unambiguous description of a the constrast the reported statistics is about",
+                "description": "a reference to an ISA NMR acquisition event ref",
+                "format": " default",
+                "type": "string",
+                "rdfType": "http://purl.obolibrary.org/obo/STATO_0000307",
+                "constraints": {
+                    "required": "False",
+                    "pattern": "gr\\(.*\\)\\svs\\sgr\\(.*\\)"
+                }
+            },
+            {
+                "name": "p-value",
+                "title": "p-value",
+                "description": "A quantitative confidence value that represents the probability of obtaining a result at least as extreme as that actually obtained, assuming that the actual value was the result of chance alone.",
+                "format": " default",
+                "type": "number",
+                "rdfType": "http://purl.obolibrary.org/obo/OBI_0000175",
+                "constraints": {"required": "False"}
+            },
+            {
+                "name": "q-value",
+                "title": "q-value",
+                "description": "adjusted p-value using a false discovery rate correction method",
+                "format": " default",
+                "type": "number",
+                "rdfType": "http://purl.obolibrary.org/obo/OBI_0001442",
+                "constraints": {"required": "False"}
+            },
+            {
+                "name": "mlt_corr_method",
+                "title": "multiple testing correction method",
+                "description": "multiple testing correction method to be selected from a controlled list of value",
+                "format": " default",
+                "type": "string",
+                "rdfType": "http://purl.obolibrary.org/obo/OBI_0200089",
+                "constraints": {
+                    "required": "False",
+                    "enum": [
+                        "Bonferroni",
+                        "Holm-Bonferroni",
+                        "Benjamini and Hochberg",
+                        "Benjamini and Yekutieli"
+                    ]
+                }
+            },
+            {
+                "name": "95pc_upr_bound",
+                "title": "upper confidence bound of a 95% confidence interval",
+                "description": "upper confidence bound of a 95% confidence interval qualifying the statistics",
+                "format": " default",
+                "type": "number",
+                "rdfType": "http://purl.obolibrary.org/obo/STATO_0000314",
+                "constraints": {"required": "False"}
+            },
+            {
+                "name": "95pc_lwr_bound",
+                "title": "lower confidence bound of a 95% confidence interval",
+                "description": "lower confidence bound of a 95% confidence interval qualifying the statistics",
+                "format": " default",
+                "type": "number",
+                "rdfType": "http://purl.obolibrary.org/obo/STATO_0000315",
+                "constraints": {"required": "False"}
+            },
+            {
+                "name": "median_diff",
+                "title": "difference between medians",
+                "description": "the difference between the medians computed over each of the group involved in the comparison/contrast",
+                "format": " default",
+                "type": "number",
+                "rdfType": "http://purl.obolibrary.org/obo/STATO_0000085",
+                "constraints": {"required": "False"}
+            },            
+                {
+                "name": "alpha_error",
+                "title": "false positive rate",
+                "description": "a false positive rate (significance level) is a data item which accounts for the proportion of incorrect rejection of a true null hypothesis, any value between 0 and 1. ",
+                "format": " default",
+                "type": "number",
+                "rdfType": "http://purl.obolibrary.org/obo/STATO_0000053",
+                "constraints": {
+                    "required": "False"
+                }
+            },
+            {
+                "name": "sig",
+                "title": "significance",
+                "description": "a boolean to indicate wether the variable under consideration is below or above the selected threshold for significance",
+                "format": " default",
+                "type": "string",
+                "rdfType": "",
+                "constraints": {
+                    "required": "False",
+                    "enum": [
+                        "1",
+                        "0"
+                    ]
+                }
+            }  
+        ]}
+    }]
+}
